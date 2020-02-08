@@ -16,6 +16,8 @@ import vn.tcong.rutlixi.adapter.MainRecyclerViewAdapter;
 import vn.tcong.rutlixi.commons.GridSpacingItemDecorator;
 import vn.tcong.rutlixi.entity.RedEnvolop;
 
+import static vn.tcong.rutlixi.commons.Constant.*;
+
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),2);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),SPAN_COUNT);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         MainRecyclerViewAdapter mainRecyclerViewAdapter = new MainRecyclerViewAdapter(getApplicationContext(),redEnvolops);
         recyclerView.setAdapter(mainRecyclerViewAdapter);
 
-        recyclerView.addItemDecoration(new GridSpacingItemDecorator(2,16));
+        recyclerView.addItemDecoration(new GridSpacingItemDecorator(SPAN_COUNT,SPACING_ITEM_RECYCLER));
 
     }
 
@@ -61,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         envolops.add(new RedEnvolop(4,R.drawable.form1,2020));
         envolops.add(new RedEnvolop(5,R.drawable.form1,2020));
         envolops.add(new RedEnvolop(6,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(7,R.drawable.form1,2020));
         return envolops;
     }
 }

@@ -28,6 +28,5 @@ public class GridSpacingItemDecorator extends RecyclerView.ItemDecoration {
             outRect.top = mSpacing;
         }
         outRect.bottom = mSpacing;
-        super.getItemOffsets(outRect, view, parent, state);
     }
 }

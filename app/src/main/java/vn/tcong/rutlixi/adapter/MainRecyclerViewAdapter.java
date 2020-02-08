@@ -15,6 +15,8 @@ import java.util.List;
 import vn.tcong.rutlixi.R;
 import vn.tcong.rutlixi.entity.RedEnvolop;
 
+import static vn.tcong.rutlixi.commons.Constant.*;
+
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerViewAdapter.MyViewHolder>{
     Context context;
     List<RedEnvolop> listRedEnvolop;
@@ -33,7 +35,8 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
     @Override
     public void onBindViewHolder(MainRecyclerViewAdapter.MyViewHolder viewHolder, int i) {
-        Picasso.with(context).load(listRedEnvolop.get(i).getSrc()).into(viewHolder.imageView);
+        Picasso.with(context).load(listRedEnvolop.get(i).getSrc()).resize(SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2).into(viewHolder.imageView);
+
     }
 
     @Override

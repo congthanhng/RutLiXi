@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),SPAN_COUNT);
         recyclerView.setLayoutManager(layoutManager);

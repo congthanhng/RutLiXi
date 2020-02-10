@@ -1,21 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_main_screen_2"
     tools:context=".MainActivity">
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+
+
+            <ImageView
+                android:id="@+id/imageViewCollapsing"
+                android:layout_width="match_parent"
+                android:layout_height="@android:dimen/thumbnail_height"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_toolbar"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@color/colorBgToolbar"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+        <!--<android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:title="@string/app_name"
-            app:layout_scrollFlags="scroll|enterAlways|snap"/>
+            android:layout_height="@android:dimen/thumbnail_height"
+            android:background="@drawable/bg_toolbar"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            &lt;!&ndash;<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ok" />
+            </LinearLayout>&ndash;&gt;
+
+        </android.support.v7.widget.Toolbar>-->
+
     </android.support.design.widget.AppBarLayout>
 
 

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Rut Li Xi</string>
+    <string name="app_name">Lucky Money Draw</string>
+    <string name="fab_new">New Lucky Money</string>
+    <string name="fab_history">History</string>
+    <string name="fab_settings">Settings</string>
+    <string name="fab_information">Information</string>
 </resources>

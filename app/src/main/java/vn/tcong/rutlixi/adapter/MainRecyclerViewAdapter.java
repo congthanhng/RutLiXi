@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -44,13 +45,19 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
         return listRedEnvolop.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
 //        TextView textView;
         public MyViewHolder(View itemView){
             super(itemView);
 //            textView=(TextView) itemView.findViewById(R.id.src_name);
             imageView = (ImageView) itemView.findViewById(R.id.imageview_item_main);
+            imageView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(),("item position: "+ getLayoutPosition()),Toast.LENGTH_SHORT).show();
         }
     }
 }

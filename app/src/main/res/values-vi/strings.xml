@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rút Lì Xì</string>
+    <string name="fab_new">Thêm mới Lì Xì</string>
+    <string name="fab_history">Lịch sử</string>
+    <string name="fab_settings">Cài đặt</string>
+    <string name="fab_information">Thông tin ứng dụng</string>
+</resources>

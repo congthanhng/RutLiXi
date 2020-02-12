@@ -8,4 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Title text when CollapseToolbarLayout collapsed-->
+    <style name="TextAppearance.Collapsed" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:title">@string/app_name</item>
+
+    </style>
+
+    <!-- Title text when CollapseToolbarLayout expanded-->
+    <style name="TextAppearance.Expanded" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textTitle_expanded_size</item>
+        <item name="android:title">@string/app_name</item>
+    </style>
+
+    <!-- background toolbar -->
+    <style name="bg_toolbar">
+        <item name="android:src">@drawable/background_main_screen_2</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
 </resources>

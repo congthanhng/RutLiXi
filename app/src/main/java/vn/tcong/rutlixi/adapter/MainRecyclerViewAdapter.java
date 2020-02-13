@@ -35,9 +35,14 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(MainRecyclerViewAdapter.MyViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final MainRecyclerViewAdapter.MyViewHolder viewHolder, final int i) {
         Picasso.with(context).load(listRedEnvolop.get(i).getSrc()).resize(SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2).into(viewHolder.imageView);
-
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(viewHolder.itemView.getContext(),"year: "+ listRedEnvolop.get(i).getYear(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -45,19 +50,16 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
         return listRedEnvolop.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
 //        TextView textView;
         public MyViewHolder(View itemView){
             super(itemView);
 //            textView=(TextView) itemView.findViewById(R.id.src_name);
             imageView = (ImageView) itemView.findViewById(R.id.imageview_item_main);
-            imageView.setOnClickListener(this);
+//            imageView.setOnClickListener(this);
         }
 
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(v.getContext(),("item position: "+ getLayoutPosition()),Toast.LENGTH_SHORT).show();
-        }
+
     }
 }

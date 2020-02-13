@@ -8,9 +8,9 @@
         android:icon="@drawable/ic_history_black_24dp"
         />-->
     <item
-        android:id="@+id/menu_main_setting2"
+        android:id="@+id/menu_main_add"
         app:showAsAction="always"
-        android:title="New LiXi"
+        android:title="@string/fab_new"
         android:icon="@drawable/ic_add_black_24dp"/>
 
 </menu>

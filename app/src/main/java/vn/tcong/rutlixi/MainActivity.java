@@ -1,7 +1,5 @@
 package vn.tcong.rutlixi;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.BaseAdapter;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -55,7 +52,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * set View and mapping
+     * listener of menu
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_main_add : Toast.makeText(getApplicationContext(),R.string.fab_new,Toast.LENGTH_SHORT).show(); break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * set Views and mapping
      */
     private void viewMapping(){
         //Toolbar
@@ -85,8 +95,11 @@ public class MainActivity extends AppCompatActivity {
         fab_information = (FloatingActionButton)findViewById(R.id.fab_infomation);
     }
 
+    /**
+     * Views Listener
+     */
     private void viewListener(){
-        /**
+        /*
          * RecyclerView
          */
         //Scroll listener
@@ -109,52 +122,48 @@ public class MainActivity extends AppCompatActivity {
         //item recyclerView click listener
         recyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener());
 
-        /**
+        /*
          * FloatingActionMenu
          */
         //item fab_newLiXi onClickListener
-        fab_newLiXi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),R.string.fab_new,Toast.LENGTH_SHORT).show();
-            }
-        });
+        fab_newLiXi.setOnClickListener(mOnClickListener);
 
         //item fab_history onClickListener
-        fab_history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),R.string.fab_history,Toast.LENGTH_SHORT).show();
-            }
-        });
+        fab_history.setOnClickListener(mOnClickListener);
 
         //item fab_settings onClickListener
-        fab_settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),R.string.fab_settings,Toast.LENGTH_SHORT).show();
-            }
-        });
+        fab_settings.setOnClickListener(mOnClickListener);
 
         //item fab_information onClickListener
-        fab_information.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),R.string.fab_information,Toast.LENGTH_SHORT).show();
-            }
-        });
+        fab_information.setOnClickListener(mOnClickListener);
     }
+
+    // an anonymous implementation of OnClickListener
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.fab_addLiXi:Toast.makeText(getApplicationContext(),R.string.fab_new,Toast.LENGTH_SHORT).show(); break;
+                case R.id.fab_history:Toast.makeText(getApplicationContext(),R.string.fab_history,Toast.LENGTH_SHORT).show(); break;
+                case R.id.fab_settings:Toast.makeText(getApplicationContext(),R.string.fab_settings,Toast.LENGTH_SHORT).show(); break;
+                case R.id.fab_infomation:Toast.makeText(getApplicationContext(),R.string.fab_information,Toast.LENGTH_SHORT).show(); break;
+
+            }
+        }
+    };
 
 
     private ArrayList<RedEnvolop> prepareData(){
         ArrayList<RedEnvolop> envolops = new ArrayList<>();
         envolops.add(new RedEnvolop(0,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(1,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(2,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(3,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(4,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(5,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(6,R.drawable.form1,2020));
+        envolops.add(new RedEnvolop(1,R.drawable.form1,2021));
+        envolops.add(new RedEnvolop(2,R.drawable.form1,2022));
+        envolops.add(new RedEnvolop(3,R.drawable.form1,2023));
+        envolops.add(new RedEnvolop(4,R.drawable.form1,2024));
+        envolops.add(new RedEnvolop(5,R.drawable.form1,2025));
+        envolops.add(new RedEnvolop(6,R.drawable.form1,2026));
         return envolops;
     }
+
+
 }

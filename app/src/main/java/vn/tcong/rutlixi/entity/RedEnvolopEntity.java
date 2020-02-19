@@ -1,11 +1,24 @@
 package vn.tcong.rutlixi.entity;
 
-public class RedEnvolop {
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "red_envolop")
+public class RedEnvolopEntity {
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
+    @ColumnInfo(name = "src")
     private int src;
+
+    @ColumnInfo(name = "year")
     private int year;
 
-    public RedEnvolop(int id, int src, int year) {
+
+
+    public RedEnvolopEntity(int id, int src, int year) {
         this.id = id;
         this.src = src;
         this.year = year;

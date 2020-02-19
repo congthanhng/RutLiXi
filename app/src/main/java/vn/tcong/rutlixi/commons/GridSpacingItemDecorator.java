@@ -1,10 +1,11 @@
 package vn.tcong.rutlixi.commons;
 
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class GridSpacingItemDecorator extends RecyclerView.ItemDecoration {
     private int mSpanCount;

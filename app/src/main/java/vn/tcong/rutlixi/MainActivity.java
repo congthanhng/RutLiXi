@@ -1,26 +1,35 @@
 package vn.tcong.rutlixi;
 
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import vn.tcong.rutlixi.Database.RedEnvolopDatabase;
+import vn.tcong.rutlixi.ViewModel.MainActivityViewModel;
 import vn.tcong.rutlixi.adapter.MainRecyclerViewAdapter;
 import vn.tcong.rutlixi.commons.GridSpacingItemDecorator;
-import vn.tcong.rutlixi.entity.RedEnvolop;
+import vn.tcong.rutlixi.entity.RedEnvolopEntity;
 
 import static vn.tcong.rutlixi.commons.Constant.*;
 
@@ -29,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FloatingActionMenu floatingActionMenu;
     private FloatingActionButton fab_newLiXi, fab_history, fab_settings, fab_information;
+    private MainRecyclerViewAdapter mainRecyclerViewAdapter;
+
+//    private MainActivityViewModel mainActivityViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +49,17 @@ public class MainActivity extends AppCompatActivity {
 
         viewMapping();
         viewListener();
+
+//        RedEnvolopDatabase redEnvolopDatabase = RedEnvolopDatabase.getInstance(this);
+//        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+//        mainActivityViewModel.getAllRedEnvolop().observe(this, new Observer<List<RedEnvolopEntity>>() {
+//            @Override
+//            public void onChanged(List<RedEnvolopEntity> redEnvolopEntities) {
+//                mainRecyclerViewAdapter.setRedEnvolops(redEnvolopEntities);
+//            }
+//        });
+
+        Log.d("LifeCycle", "onCreate: " );
     }
 
     /**
@@ -82,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),SPAN_COUNT);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        ArrayList<RedEnvolop> redEnvolops = prepareData();  //List entity
-        MainRecyclerViewAdapter mainRecyclerViewAdapter = new MainRecyclerViewAdapter(getApplicationContext(),redEnvolops);
+        ArrayList<RedEnvolopEntity> redEnvolopEntities = prepareData();  //List entity
+        mainRecyclerViewAdapter = new MainRecyclerViewAdapter(getApplicationContext(), redEnvolopEntities);
         recyclerView.setAdapter(mainRecyclerViewAdapter);
         recyclerView.addItemDecoration(new GridSpacingItemDecorator(SPAN_COUNT,SPACING_ITEM_RECYCLER)); //spacing between items in grid
 
@@ -153,15 +176,15 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-    private ArrayList<RedEnvolop> prepareData(){
-        ArrayList<RedEnvolop> envolops = new ArrayList<>();
-        envolops.add(new RedEnvolop(0,R.drawable.form1,2020));
-        envolops.add(new RedEnvolop(1,R.drawable.form1,2021));
-        envolops.add(new RedEnvolop(2,R.drawable.form1,2022));
-        envolops.add(new RedEnvolop(3,R.drawable.form1,2023));
-        envolops.add(new RedEnvolop(4,R.drawable.form1,2024));
-        envolops.add(new RedEnvolop(5,R.drawable.form1,2025));
-        envolops.add(new RedEnvolop(6,R.drawable.form1,2026));
+    private ArrayList<RedEnvolopEntity> prepareData(){
+        ArrayList<RedEnvolopEntity> envolops = new ArrayList<>();
+        envolops.add(new RedEnvolopEntity(0,R.drawable.form1,2020));
+        envolops.add(new RedEnvolopEntity(1,R.drawable.form1,2021));
+        envolops.add(new RedEnvolopEntity(2,R.drawable.form1,2022));
+        envolops.add(new RedEnvolopEntity(3,R.drawable.form1,2023));
+        envolops.add(new RedEnvolopEntity(4,R.drawable.form1,2024));
+        envolops.add(new RedEnvolopEntity(5,R.drawable.form1,2025));
+        envolops.add(new RedEnvolopEntity(6,R.drawable.form1,2026));
         return envolops;
     }
 

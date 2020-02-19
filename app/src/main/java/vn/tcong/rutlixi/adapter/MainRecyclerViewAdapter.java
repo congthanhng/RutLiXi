@@ -1,30 +1,30 @@
 package vn.tcong.rutlixi.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import vn.tcong.rutlixi.R;
-import vn.tcong.rutlixi.entity.RedEnvolop;
+import vn.tcong.rutlixi.entity.RedEnvolopEntity;
 
 import static vn.tcong.rutlixi.commons.Constant.*;
 
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerViewAdapter.MyViewHolder>{
     Context context;
-    List<RedEnvolop> listRedEnvolop;
+    List<RedEnvolopEntity> listRedEnvolopEntity;
 
-    public MainRecyclerViewAdapter(Context context, List<RedEnvolop> listRedEnvolop) {
+    public MainRecyclerViewAdapter(Context context, List<RedEnvolopEntity> listRedEnvolopEntity) {
         this.context = context;
-        this.listRedEnvolop = listRedEnvolop;
+        this.listRedEnvolopEntity = listRedEnvolopEntity;
     }
 
     @Override
@@ -36,18 +36,23 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
     @Override
     public void onBindViewHolder(final MainRecyclerViewAdapter.MyViewHolder viewHolder, final int i) {
-        Picasso.with(context).load(listRedEnvolop.get(i).getSrc()).resize(SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2).into(viewHolder.imageView);
+        Picasso.with(context).load(listRedEnvolopEntity.get(i).getSrc()).resize(SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2).into(viewHolder.imageView);
         viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(viewHolder.itemView.getContext(),"year: "+ listRedEnvolop.get(i).getYear(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(viewHolder.itemView.getContext(),"year: "+ listRedEnvolopEntity.get(i).getYear(),Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    public void setRedEnvolops(List<RedEnvolopEntity> listRedEnvolop){
+        this.listRedEnvolopEntity = listRedEnvolop;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
-        return listRedEnvolop.size();
+        return listRedEnvolopEntity.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

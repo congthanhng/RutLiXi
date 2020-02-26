@@ -12,12 +12,12 @@ import java.util.List;
 import vn.tcong.rutlixi.Reponsitory.RedEnvolopReponsitory;
 import vn.tcong.rutlixi.entity.RedEnvolopEntity;
 
-public class MainActivityViewModel extends AndroidViewModel {
+public class RedEnvolopViewModel extends AndroidViewModel {
 
     private RedEnvolopReponsitory redEnvolopReponsitory;
     private LiveData<List<RedEnvolopEntity>> getAllRedEnvolop;
 
-    public MainActivityViewModel(@NonNull Application application) {
+    public RedEnvolopViewModel(@NonNull Application application) {
         super(application);
         redEnvolopReponsitory = new RedEnvolopReponsitory(application);
         getAllRedEnvolop= redEnvolopReponsitory.getAllRedEnvolop();

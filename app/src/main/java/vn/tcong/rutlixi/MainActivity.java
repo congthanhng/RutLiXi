@@ -14,8 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,10 +22,7 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import vn.tcong.rutlixi.Database.RedEnvolopDatabase;
-import vn.tcong.rutlixi.ViewModel.MainActivityViewModel;
 import vn.tcong.rutlixi.adapter.MainRecyclerViewAdapter;
 import vn.tcong.rutlixi.commons.GridSpacingItemDecorator;
 import vn.tcong.rutlixi.entity.RedEnvolopEntity;
